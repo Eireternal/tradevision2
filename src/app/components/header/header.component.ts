@@ -9,10 +9,19 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 export class HeaderComponent implements OnInit {
 
   @Input() sidenav: MatSidenavModule;
+  isShowing: boolean;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleSidenav() {
+    this.isShowing = !this.isShowing;
+  }
+
+  callMethods() {
+    this.toggleSidenav();
   }
 
 }

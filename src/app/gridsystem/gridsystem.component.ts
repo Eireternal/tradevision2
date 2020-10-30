@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '../../../node_modules/@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {CompactType, GridsterConfig, GridsterItem, GridsterItemComponent, GridsterPush, GridType} from 'angular-gridster2';
 import { faTimesCircle, faWindowClose } from '@fortawesome/free-regular-svg-icons';
 import { faExpand, faCompress, faThumbtack } from '@fortawesome/free-solid-svg-icons';

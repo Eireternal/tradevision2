@@ -10,6 +10,9 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   exports: [
@@ -21,6 +24,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatRippleModule,
     MatIconModule,
     MatSidenavModule,
+    MatButtonToggleModule,
+    MatDividerModule,
+    MatListModule,
     MatTabsModule,
     PortalModule,
     ScrollingModule,

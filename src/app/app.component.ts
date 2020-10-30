@@ -10,8 +10,9 @@ export class AppComponent {
   title = 'tradevision';
   public onSideNavChange: boolean;
 
-  constructor(private sidenavService: SidenavService) {
-    this.sidenavService.sideNavState$.subscribe( res => {
+  // tslint:disable-next-line: variable-name
+  constructor(private _sidenavService: SidenavService) {
+    this._sidenavService.sideNavState$.subscribe( res => {
       console.log(res);
       this.onSideNavChange = res;
     });
