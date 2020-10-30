@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatSidenav } from '@angular/material';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,7 @@ import { MatSidenav } from '@angular/material';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() sidenav: MatSidenav
+  @Input() sidenav: MatSidenavModule;
 
   constructor() { }
 

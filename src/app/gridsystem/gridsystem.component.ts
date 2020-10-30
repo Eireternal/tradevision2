@@ -22,7 +22,7 @@ export class GridsystemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.savedLayouts = Object.keys(localStorage);
     console.log(JSON.stringify(this.savedLayouts));
     this.options = {

@@ -11,7 +11,8 @@ import { faExpand, faCompress, faThumbtack } from '@fortawesome/free-solid-svg-i
 import { HeaderComponent } from './components/header/header.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 import { MaterialModule } from './material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+// import { FlexLayoutModule } from '@angular/flex-layout';
+import { SidenavService } from './services/sidenav.service';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     GridsterModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule
+    MaterialModule
   ],
-  providers: [],
+  providers: [ SidenavService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

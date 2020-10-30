@@ -1,1 +1,17 @@
-<app-gridsystem></app-gridsystem>
+<div>
+  <app-header [sidenav]="leftSidenav"></app-header>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #leftSidenav mode="side" opened>
+      <app-left-menu></app-left-menu>
+    </mat-sidenav>
+    <mat-sidenav-content [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
+      <div class="main_content">
+        <div style="padding: 20px">
+          <app-gridsystem></app-gridsystem>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>
