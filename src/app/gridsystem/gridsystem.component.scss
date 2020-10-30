@@ -1,0 +1,100 @@
+gridster-item {
+  border-radius: 4px;
+}
+gridster-item div.button-holder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+gridster-item .item-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+gridster-item .gridster-item-content {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.gridster-item-content {
+  background-color: yellow;
+}
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gridster {
+    display: flex;
+    height: calc(100vh - 115px);
+    flex-direction: column;
+  }
+}
+
+.maximize {
+  height: calc(100%) !important;
+  width: calc(100%) !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: translate3d(0, 0px, 0px) !important;
+  z-index: 999;
+}
+
+.widgetHeader{
+  width: 100%;
+  background: #30353d;
+  box-sizing:border-box;
+  padding: 0;
+  text-transform: uppercase;
+  color: lightgrey;
+  font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .widgetTitle {
+    padding: 0 10px;
+  }
+  .actionButtons span > a {
+    cursor: pointer;
+  }
+  a{
+    color:lightgrey;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    transition: 0.5s;
+
+    &:hover {
+      color: #00b5f1;
+      background: #272b31;
+      transition: 0.5s;
+    }
+    &.pinned {
+      color: #00b5f1;
+    }
+  }
+
+  .remove {
+    a{
+      &:hover {
+        color: #ef5350;
+      }
+
+    }
+  }
+}

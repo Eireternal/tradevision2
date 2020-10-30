@@ -1,0 +1,47 @@
+<div class="options">
+  <button mat-mini-fab (click)="addItem()" class="add-button cols-2">
+    <!-- <mat-icon>add</mat-icon> --> Add
+  </button>
+  <select name="tradevisionLayouts" id="layout-select" #t (change)="callType(t.value)">
+    <option *ngFor="let layout of savedLayouts.slice().reverse()" [value]="layout">{{layout}}</option>
+  </select>
+  <button mat-mini-fab (click)="saveLayout()" class="add-button cols-2">
+    <!-- <mat-icon>add</mat-icon> --> Save Layout
+  </button>
+
+</div>
+
+
+<!-- <gridster [options]="options">
+  <gridster-item [item]="item" *ngFor="let item of dashboard">
+    <div class="button-holder">
+      <button mat-mini-fab (mousedown)="removeItem($event, item)"
+              (touchstart)="removeItem($event, item)">
+       <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </gridster-item>
+</gridster> -->
+
+<gridster [options]="options">
+  <gridster-item [item]="item" [ngClass]="{'maximize' : item.layerIndex === 2}" *ngFor="let item of dashboard">
+    <div class="widgetHeader drag-handler">
+      <span class="widgetTitle">Matrix</span>
+      <span class="actionButtons">
+        <span class="pin">
+          <a ng-show="editEnabled" [ngClass]="{'pinned' : !item.dragEnabled}" (mousedown)="pinItem($event, item)"
+          (touchstart)="pinItem($event, item)"><fa-icon [icon]="faThumbtack"></fa-icon></a>
+        </span>
+        <span>
+          <a ng-show="editEnabled" (mousedown)="expandItem($event, item)"
+          (touchstart)="expandItem($event, item)">
+            <fa-icon *ngIf="item.layerIndex === 1" [icon]="faExpand"></fa-icon>
+            <fa-icon *ngIf="item.layerIndex === 2" [icon]="faCompress"></fa-icon>
+          </a>
+        </span>
+        <span class="remove"><a href ng-show="editEnabled" (mousedown)="removeItem($event, item)"
+          (touchstart)="removeItem($event, item)"><fa-icon [icon]="faTimesCircle"></fa-icon></a></span>
+      </span>
+  </div>
+  </gridster-item>
+</gridster>

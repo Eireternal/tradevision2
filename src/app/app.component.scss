@@ -1,0 +1,45 @@
+gridster-item div.button-holder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+gridster-item .item-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+gridster-item .gridster-item-content {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.gridster-item-content {
+  background-color: yellow;
+}
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gridster {
+    display: flex;
+    height: calc(100vh - 115px);
+    flex-direction: column;
+  }
+}
+
+.destroy-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 100;
+}
