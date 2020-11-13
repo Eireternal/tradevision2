@@ -1,11 +1,36 @@
 .sidenav_container {
-  min-width: 60px; 
+  min-width: 50px;
   height: calc(100vh - 200px);
+  font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+  font-weight: 700;
 }
 
-.jim {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  border-radius: 50%;
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 2px 14px 2px 17px !important;
+  text-align: center !important;
 }
+
+fa-icon {
+  font-size: 20px;
+  width: 26px;
+  height: 26px;
+  margin-right: 6px;
+}
+
+/* Ripple effect */
+.ripple {
+  text-align: center !important;
+  background-position: center;
+  transition: background 0.5s;
+
+}
+.ripple:hover {
+  background: #00BCD4 radial-gradient(circle, transparent 1%, #00BCD4 1%) center/15000%;
+  color: white;
+}
+.ripple:active {
+  background-color: #ffffff;
+  background-size: 100%;
+  transition: background 0s;
+}
+

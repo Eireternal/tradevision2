@@ -1,7 +1,10 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {CompactType, GridsterConfig, GridsterItem, GridsterItemComponent, GridsterPush, GridType} from 'angular-gridster2';
 import { faTimesCircle, faWindowClose } from '@fortawesome/free-regular-svg-icons';
-import { faExpand, faCompress, faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { faExpand, faCompress, faThumbtack, faChartPie, faChartLine, faChartBar, faChartArea, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+import { SidenavService } from '../services/sidenav.service';
+import { MatrixPopupComponent } from '../components/matrix-popup/matrix-popup.component';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-gridsystem',
@@ -13,21 +16,29 @@ export class GridsystemComponent implements OnInit {
   dashboard: Array<GridsterItem>;
   itemToPush: GridsterItemComponent;
   savedLayouts = [];
+  active = false;
+  currentLayout: string;
   order: any;
   faThumbtack = faThumbtack;
   faTimesCircle = faTimesCircle;
   faExpand = faExpand;
   faCompress = faCompress;
   faWindowClose = faWindowClose;
+  faChartPie = faChartPie;
+  faChartLine = faChartLine;
+  faChartBar = faChartBar;
+  faChartArea = faChartArea;
+  faProjectDiagram = faProjectDiagram;
+  @ViewChild(MatrixPopupComponent) popup: MatrixPopupComponent;
 
-  constructor() { }
+  // tslint:disable-next-line: variable-name
+  constructor(private _sidenavService: SidenavService) { }
 
   ngOnInit() {
-    this.savedLayouts = Object.keys(localStorage);
-    console.log(JSON.stringify(this.savedLayouts));
+
     this.options = {
       margin: 4,
-      outerMargin: true,
+      outerMargin: false,
       setGridSize: false,
       gridType: GridType.Fit,
       fixedRowHeight: 100,
@@ -55,46 +66,30 @@ export class GridsystemComponent implements OnInit {
         dragHandleClass: 'drag-handler'
       }
     };
-    this.order = {
-      type: 'Layout'
-    };
+    // this.order = {
+    //   type: 'Layout'
+    // };
 
-    this.loadLayout();
+    this.savedLayouts = this._sidenavService.getLayouts();
+    console.log(this.savedLayouts);
+    this.dashboard = this._sidenavService.loadLayout();
+  }
 
-    // this.dashboard = [
-    //   {cols: 2, rows: 1, y: 0, x: 0, layerIndex: 1},
-    //   {cols: 2, rows: 2, y: 0, x: 2, layerIndex: 1}
-    // ];
+  // saveLayout() {
+  //   this._sidenavService.loadLayout();
+  // }
 
-    this.dashboard.forEach( item => {
-      // tslint:disable-next-line: max-line-length
-      if (this.dashboard[this.dashboard.indexOf(item)].dragEnabled === undefined) {
-        this.dashboard[this.dashboard.indexOf(item)].dragEnabled = true;
-        this.dashboard[this.dashboard.indexOf(item)].rezizeEnabled = true;
-        this.changedOptions();
-      }
-    });
+  // callType(value){
+  //   console.log(value);
+  //   this.order.type = value;
+  //   this.loadLayout();
+  // }
+
+  // Check if user has saved layouts, otherwise load a default
+  loadLayout(layout) {
+    this.dashboard = this._sidenavService.loadLayout(layout);
+    this.currentLayout = layout;
     console.log(this.dashboard);
-  }
-
-  saveLayout() {
-    localStorage.setItem('Layout', JSON.stringify(this.dashboard));
-
-    const data = JSON.parse(localStorage.getItem(this.order.type));
-
-    console.log(data);
-  }
-
-  callType(value){
-    console.log(value);
-    this.order.type = value;
-    this.loadLayout();
-  }
-
-  loadLayout() {
-    const data = JSON.parse(localStorage.getItem(this.order.type));
-    this.dashboard = data;
-    console.log(data);
   }
 
   changedOptions(): void {

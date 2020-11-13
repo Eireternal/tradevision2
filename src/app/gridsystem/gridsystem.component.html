@@ -1,15 +1,12 @@
 <div class="options">
-  <button mat-mini-fab (click)="addItem()" class="add-button cols-2">
-    <!-- <mat-icon>add</mat-icon> --> Add
-  </button>
-  <select name="tradevisionLayouts" id="layout-select" #t (change)="callType(t.value)">
-    <option *ngFor="let layout of savedLayouts.slice().reverse()" [value]="layout">{{layout}}</option>
-  </select>
-  <button mat-mini-fab (click)="saveLayout()" class="add-button cols-2">
-    <!-- <mat-icon>add</mat-icon> --> Save Layout
-  </button>
+  <div class="worko-tabs">
+    <input class="state" type="radio" title="tab-{{i}}" name="tabs-state" id="tab-{{i}}" *ngFor="let layout of savedLayouts.slice().reverse(); let i = index;" />
 
-</div>
+    <div class="tabs flex-tabs">
+      <label (click)="loadLayout(layout)" for="tab-{{i}}" id="tab-one-label" class="tab" [ngClass]="{'active': currentLayout === layout}" *ngFor="let layout of savedLayouts.slice().reverse(); let i = index;">{{layout}}</label>
+      <label id="save" class="tab save-tab"><app-matrix-popup></app-matrix-popup></label>
+    </div>
+  </div>
 
 
 <!-- <gridster [options]="options">
@@ -26,7 +23,7 @@
 <gridster [options]="options">
   <gridster-item [item]="item" [ngClass]="{'maximize' : item.layerIndex === 2}" *ngFor="let item of dashboard">
     <div class="widgetHeader drag-handler">
-      <span class="widgetTitle">Matrix</span>
+      <span class="widgetTitle">{{item?.title}} Matrix</span>
       <span class="actionButtons">
         <span class="pin">
           <a ng-show="editEnabled" [ngClass]="{'pinned' : !item.dragEnabled}" (mousedown)="pinItem($event, item)"

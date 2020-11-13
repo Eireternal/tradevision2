@@ -8,7 +8,7 @@ import { SidenavService } from './services/sidenav.service';
 })
 export class AppComponent {
   title = 'tradevision';
-  public onSideNavChange: boolean;
+  public onSideNavChange = false;
 
   // tslint:disable-next-line: variable-name
   constructor(private _sidenavService: SidenavService) {

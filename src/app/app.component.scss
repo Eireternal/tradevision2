@@ -1,3 +1,4 @@
+
 gridster-item div.button-holder {
   width: 100%;
   height: 100%;
@@ -43,3 +44,25 @@ gridster-item .gridster-item-content {
   top: 10px;
   z-index: 100;
 }
+
+mat-sidenav.sidenav-open {
+  min-width: 150px !important;
+  transition: all 0.5s;
+
+  mat-list-item {
+    span {
+      margin-left: 10px !important;
+      transition: all 0.5s;
+    }
+  }
+}
+
+mat-sidenav-content.sidenav-open {
+  margin-left: 150px !important;
+  transition: all 0.5s;
+}
+
+mat-sidenav, mat-sidenav-content {
+  transition: all 0.5s;
+}
+

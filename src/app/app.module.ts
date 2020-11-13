@@ -10,24 +10,38 @@ import { faTimesCircle, faWindowClose } from '@fortawesome/free-regular-svg-icon
 import { faExpand, faCompress, faThumbtack } from '@fortawesome/free-solid-svg-icons';
 import { HeaderComponent } from './components/header/header.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './modules/material.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 // import { FlexLayoutModule } from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SidenavService } from './services/sidenav.service';
-
+import { MatrixPopupComponent, PopupComponent } from './components/matrix-popup/matrix-popup.component';
 @NgModule({
   declarations: [
     AppComponent,
     GridsystemComponent,
     HeaderComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    MatrixPopupComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
     GridsterModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
+  entryComponents: [MatrixPopupComponent, PopupComponent],
   providers: [ SidenavService ],
   bootstrap: [AppComponent]
 })
